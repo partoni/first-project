@@ -1,0 +1,29 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "description": "\"My project\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "keywords": [
+    "\"react\"",
+    "\"mongo\"",
+    "\"express\"",
+    "\"node\""
+  ],
+  "author": "\"Anton Parfenov\" <tomi_parfenov@mail.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "concurrent": "^0.3.2",
+    "nodemon": "^2.0.15"
+  }
+}
