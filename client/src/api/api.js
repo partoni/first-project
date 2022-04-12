@@ -6,6 +6,9 @@ const instans = axios.create({
 })
 export const usersApi = {
     getUsers(){
-       return instans.get('auth')
+       return instans.get('user')
+    },
+    addUser(email,password){
+        return instans.post('reg',{email,password})
     }
 }

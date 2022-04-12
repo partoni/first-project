@@ -1,19 +1,27 @@
 const express = require('express')
 const app = express()
+const db = require('./db')
+
 const config = require('config')
-const  router = require('./routers')
+const  router = require('./routers/userRouters')
 const PORT = config.get('port')
 const cors = require('cors')
+
+app.use(express.json())
 app.use(cors({
     credentials:true,
     origin:"http://localhost:3000"
 }))
-app.use('/api',router)
-const startApp= ()=>{
 
-    app.listen(PORT,()=>{
-        
-        console.log(`server is working on the ${PORT}`)
-    })
+app.use('/api',router)
+
+const startApp= async()=>{
+    try {
+        await db.authenticate()
+        await db.sync()
+        app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+    } catch (e) {
+        console.log(e)
+    }
 }
 startApp()

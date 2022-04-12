@@ -1,7 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
-import {useEffect, useState} from 'react'
-import {usersApi} from './api/api'
+
+// import{BrowserRouter} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
+import PageAuth from './components/auth';
+import Logo from './components/logo';
 
 // const addUsers = async()=>{
 //     let users = await getUsers()
@@ -10,23 +13,20 @@ import {usersApi} from './api/api'
     
 // }
 function App() {
- let [users,setUsers] = useState([])
-  useEffect(()=>{
-    usersApi.getUsers().then(user=>{
-      console.log(user.data);
-      return setUsers(user.data)})
-    
-    
-  },[])
+ 
   
   return (
+    
     <div className="App">
+      
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-                
-        {users?users.map(user=><li key={user.id}>{user.name}</li>):<p>нет никто</p>}
+      <Routes>
+        <Route path='/' element={<Logo/>}/>
+        <Route path='/auth' element={<PageAuth/>}/>
+      </Routes>
       </header>
     </div>
+    
   );
 }
 

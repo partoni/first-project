@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.button{
+  border: 1px solid rgb(250, 249, 249);
+  margin-top: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
