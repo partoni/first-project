@@ -2,12 +2,12 @@ const {Router}=require('express')
 
 
 
-const router = new Router()
+const userRouter = new Router()
 // const sequelize = require('../db')
 const{User} = require('../models/models')
 
 
-router.post('/reg', async (req,res)=>{
+userRouter.post('/reg', async (req,res)=>{
     try{
         console.log(req.body)
         const {email,password} = req.body
@@ -31,7 +31,7 @@ router.post('/reg', async (req,res)=>{
         res.status(503).json(e.message)
     }
 })
-router.post('/auth',async()=>{
+userRouter.post('/auth',async()=>{
     try{
     // const drivers = await db.query('SELECT*FROM users')
     // console.log(drivers.rows)
@@ -41,4 +41,4 @@ router.post('/auth',async()=>{
         res.status(503).json(e.message)
     }
 })
-module.exports = router
+module.exports = userRouter

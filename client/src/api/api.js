@@ -12,3 +12,17 @@ export const usersApi = {
         return instans.post('reg',{email,password})
     }
 }
+export const driverApi = {
+    getAllDrivers(){
+       return instans.get('drivers')
+    },
+    addDriver(driver){
+        return instans.post('addDriver',driver)
+    },
+    delDriver(driver){
+        return instans.post('delDriver',driver)
+    },
+    upDriver(driver){
+        return instans.post('upDriver',driver)
+    },
+}

@@ -10,7 +10,7 @@ const config = require('config')
 module.exports = new Sequelize(
     'taxi',
     'postgres',
-    '0238994Tk',
+    '238994',
     {
         dialect:'postgres',
         port:'5432',        
