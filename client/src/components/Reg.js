@@ -9,7 +9,7 @@ const Reg = ()=>{
     return(
         <div>
             
-            
+            нет никто
                     
            
         </div>

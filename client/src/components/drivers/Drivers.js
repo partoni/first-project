@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import driverApi from '../../api/api'
+import {driverApi} from '../../api/api'
 
 export const Drivers = ()=>{
     const [drivers, setDrivers] = useState([
@@ -7,19 +7,23 @@ export const Drivers = ()=>{
     ])
 
     function addDriver(e) {
-
-        // let newDriver = 
-        // driverApi.addDriver()
+        e.preventDefault()
+        let name = e.target.name
+        let firstName = e.target.firstName
+        let auto = e.target.auto
+        let phone = e.target.phone
+        let newDriver = {name,firstName,auto,phone}
+        driverApi.addDriver(newDriver)
     }
     return(
         <>
-        <div className='drivers'>
-            <form className=''>
+        <div className='drivers__form'>
+            <form onSubmit = {addDriver}>
                 <label>имя<input name="name"/></label>
                 <label>фамилия<input name='firstName'/></label>
                 <label>авто<input name="auto" /></label>
                 <label>телефон<input name="phone" /></label>
-                <button onClick={addDriver}>сохранить</button>
+                <button type='submit'>сохранить</button>
             </form>
         </div>
         <ul>

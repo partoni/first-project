@@ -15,8 +15,8 @@
     display: flex;
     justify-content: end;
 }
-.button_item{
-    
+.button>div{
+    font-size: calc(5px + 2vmin);
     border: 1px solid rgb(250, 249, 249);
     margin: 5px 10px;
     cursor: pointer;

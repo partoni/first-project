@@ -5,11 +5,11 @@ const instans = axios.create({
     withCredentials: true
 })
 export const usersApi = {
-    getUsers(){
-       return instans.get('user')
+     getUser(email,password){
+       return instans.post('user/auth',{email,password})
     },
     addUser(email,password){
-        return instans.post('reg',{email,password})
+        return instans.post('user/reg',{email,password})
     }
 }
 export const driverApi = {
