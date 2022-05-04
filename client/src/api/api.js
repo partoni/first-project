@@ -14,10 +14,10 @@ export const usersApi = {
 }
 export const driverApi = {
     getAllDrivers(){
-       return instans.get('drivers')
+       return instans.get('drivers/drivers')
     },
     addDriver(driver){
-        return instans.post('addDriver',driver)
+        return instans.post('drivers/addDriver',driver)
     },
     delDriver(driver){
         return instans.post('delDriver',driver)

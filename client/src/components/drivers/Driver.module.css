@@ -1,0 +1,18 @@
+.driver{
+    
+    cursor: pointer;
+    
+}
+.driver__details{
+height: 100px;
+cursor: pointer;
+}
+.button{
+    font-size: 1rem;
+    display: inline-block;
+    background-color: cornflowerblue;
+    border:1px solid #fff;
+    margin: 5px 15px;
+    padding: 0px 3px;
+    cursor: pointer;
+}

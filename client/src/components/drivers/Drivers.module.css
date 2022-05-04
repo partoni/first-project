@@ -1,0 +1,51 @@
+.drivers{}
+.form{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+
+.form__inputs{
+display: flex;
+flex-direction: column;
+
+}
+
+.form__input{
+margin: 5px 20px;
+
+
+}
+.form__input input{
+    height: 30px;
+}
+.form__buttons{
+display: flex;
+
+justify-content: center;
+}
+.button{
+   
+    margin: 5px 15px;
+}
+.form__button_find{
+    background-color: cornflowerblue;
+    font-size: 1rem;
+    border:1px solid #fff;
+    margin: 5px 15px;
+    padding: 0px 3px;
+    cursor: pointer;
+}
+.form__button_add{
+    font-size: 1rem;
+    background-color: cornflowerblue;
+    border:1px solid #fff;
+    margin: 5px 15px;
+    padding: 0px 3px;
+    cursor: pointer;
+}
+.item{
+    display: flex;
+    flex-direction:column;
+}

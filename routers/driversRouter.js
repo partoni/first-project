@@ -14,8 +14,8 @@ try{
 driversRouter.post('/addDriver', async(req,res)=>{
 try{
     const {name,firstName,phone,auto} = req.body
-    let drivers = await Driver.create({name,firstName,phone,auto})
-    res.status(200).json(drivers)
+    let driver = await Driver.create({name,firstName,phone,auto})
+    res.status(200).json(driver)
 }catch(e){
     res.status(503).json(e.message)
 }

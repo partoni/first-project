@@ -14,7 +14,7 @@
   min-height: 100vh;
 }
 
-.content_main{
+.content__main{
   flex: 1 0 auto;
  
   display: flex;
@@ -23,17 +23,17 @@
 
 
 }
-.main_navbar{
+.main__navbar{
   width: 200px;
-  background-color: rgb(162, 131, 72);
+  background-color: #22262d;
 
 }
-.main_navbar>ul>li{
+.main__navbar>ul>li{
   color: aliceblue;
   text-decoration: none;
   list-style-type: none;
 }
-.main_content{
+.main__content{
   align-self: stretch;
   
   flex: 1 0 auto
@@ -42,7 +42,7 @@
   max-width: 1000px;
   margin: 0 auto;
 }
-.content_header{
+.content__header{
   display: flex;
   align-items: center;
   justify-content: end;
@@ -50,8 +50,9 @@
   background-color: grey;
   
 }
-.header_item{
+.header__item{
   margin: 0px 20px 20px;
+  
 }
 a{
   text-decoration: none;
@@ -60,7 +61,7 @@ a{
 }
 
 
-.content_footer {
+.content__footer {
   height: 70px;
   background-color: grey;
 

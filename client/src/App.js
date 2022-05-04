@@ -19,20 +19,19 @@ function App() {
     <div className="App">
       {/* <div className='conteiner'> */}
         <div className='content'>
-          <div className='content_header header'>
-            <div className='header_item'><Link to={'/'}>Главная</Link></div>
-            <div className='header_item'><Link to={'/city'}>Города</Link></div>
-            <div className='header_item'><Link to={'/reg'}>Регистрация</Link></div>
-            <div className='header_item'><Link to={'/auth'}>Вход</Link></div>
+          <div className='content__header header'>
+            <div className='header__item'><Link to={'/'}>Главная</Link></div>
+            <div className='header__item'><Link to={'/city'}>Города</Link></div>
+            <div className='header__item'><Link to={'/auth'}>Регистрация/Вход</Link></div>
           </div>
-          <div className='content_main main'>
-            <div className='main_navbar'>
+          <div className='content__main main'>
+            <div className='main__navbar'>
               <ul>
                 <li><Link to={'/drivers'}>Водители</Link></li>
                 <li><Link to={'/dispetchers'}>Диспетчеры</Link></li>
               </ul>
             </div>
-            <div className='main_content'>
+            <div className='main__content'>
 
               <Routes>
               <Route path='/' element={<Main/>}/>
@@ -44,7 +43,7 @@ function App() {
             </div>
             
           </div>
-          <div className='content_footer'>
+          <div className='content__footer'>
             footer
           </div>
         </div>

@@ -3,7 +3,7 @@ const {DataTypes} = require('sequelize')
 
 const Driver = sequelize.define('driver',{
     id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
-    name:{type:DataTypes.STRING,unique:true},
+    name:{type:DataTypes.STRING},
     firstName:{type:DataTypes.STRING},
     auto:{type:DataTypes.STRING},
     phone:{type:DataTypes.STRING},
