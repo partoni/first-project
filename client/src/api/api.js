@@ -20,7 +20,7 @@ export const driverApi = {
         return instans.post('drivers/addDriver',driver)
     },
     delDriver(driver){
-        return instans.post('delDriver',driver)
+        return instans.post('drivers/delDriver',driver)
     },
     upDriver(driver){
         return instans.post('upDriver',driver)

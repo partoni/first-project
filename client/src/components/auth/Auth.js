@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { usersApi } from '../../api/api'
 import { AuthContext } from '../../hoc/AuthContext'
+import { MyButton } from '../UI/button/MyButton'
 import style from './Auth.module.css'
 
 
@@ -50,8 +51,9 @@ export default function PageAuth() {
                 <div><input id='password'value={password} onChange={changPassword} placeholder='password'/></div>
             </div>
             <div className={style.button}>
-            <div  onClick={getUser}>войти</div>
-            <div  onClick={addUser}>Регистрация</div>
+            <MyButton content='войти' callback={getUser}/>
+            <MyButton content='Регистрация' callback={getUser}/>
+            
             </div>
             <h2>{user.email?user.email:'no user'}</h2>
         </div>

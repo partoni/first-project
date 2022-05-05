@@ -1,19 +1,24 @@
 import React, { useState, useEffect, useRef} from 'react'
 import { driverApi } from '../../api/api'
+import { MyButton } from '../UI/button/MyButton';
 import Driver from './Driver';
 import style from './Drivers.module.css'
 export const Drivers = () => {
-    console.log('компонент drivers');
+    console.log('компонент drivers')
+    
     const [drivers, setDrivers] = useState([
         { name: 'Anton', firstName: 'Petrov', auto: 'skoda', phone: '01234567' }
     ])
+    const getAllDrivers = async()=>{
+        await driverApi.getAllDrivers()
+        .then((driversDB)=>setDrivers(driversDB.data))
+    }
     let nameRef = useRef()
     let firstNameRef = useRef()
     let autoRef = useRef()
     let phoneRef = useRef()
     useEffect(()=>{
-        driverApi.getAllDrivers()
-        .then((driversDB)=>setDrivers(driversDB.data))
+        getAllDrivers()
         
     },[])
     console.log(drivers);
@@ -32,7 +37,7 @@ export const Drivers = () => {
         autoRef.current.value=''
         phoneRef.current.value=''
         driverApi.addDriver(newDriver)
-        setDrivers([...drivers,newDriver])
+        getAllDrivers()
     }
     return (
         <div className={style.drivers}>
@@ -53,14 +58,14 @@ export const Drivers = () => {
 
                 </div>
                 <div className={style.form__buttons}>
-                    <div className={style.form__button_find } onClick={findDriver}>Найти</div>
-                    <div className={style.form__button_add} onClick={addDriver}>Добавить</div>
+                <MyButton content='Найти' callback={findDriver}/>
+                <MyButton content='Добавить' callback={addDriver}/>
                 </div>
             </div>
             <div className={style.item}>
 
                 {drivers.length
-                    ? drivers.map(driver =><Driver driver={driver}/>)
+                    ? drivers.map(driver =><Driver driver={driver}  getAllDrivers={getAllDrivers}/>)
                     : <span>Нет водителей</span>
                 }
 
