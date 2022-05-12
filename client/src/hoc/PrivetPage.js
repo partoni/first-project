@@ -5,11 +5,23 @@ import { AuthContext } from "./AuthContext"
 
 export const PrivetPage = ({children})=>{
     const location = useLocation()
-    let context = useContext(AuthContext)
+    let [user,setUser] = useContext(AuthContext)
     console.log('privetPage');
-    console.log(context);
-    if(!context[0].email)return(<Navigate to="/auth" state={{from:location}}/>)
-
+    console.log(user);
+    if(!user.email){
+        return(<Navigate to="/auth" state={{from:location}}/>)
+    }
+    // else{
+    //     switch (user.role) {
+    //         case "admin":
+                
+    //             return  (<Navigate to="/admin"/>)
+        
+    //         default:
+    //             break;
+    //     }
+    // }
+    
     return(
         children
     )

@@ -4,7 +4,7 @@ import { MyButton } from '../UI/button/MyButton';
 import Driver from './Driver';
 import style from './Drivers.module.css'
 export const Drivers = () => {
-    console.log('компонент drivers')
+    console.log('компонент Drivers')
     
     const [drivers, setDrivers] = useState([
         { name: 'Anton', firstName: 'Petrov', auto: 'skoda', phone: '01234567' }
@@ -21,7 +21,7 @@ export const Drivers = () => {
         getAllDrivers()
         
     },[])
-    console.log(drivers);
+   
     function findDriver() {
         
     }
@@ -62,7 +62,7 @@ export const Drivers = () => {
                 <MyButton content='Добавить' callback={addDriver}/>
                 </div>
             </div>
-            <div className={style.item}>
+            <div className={style.listDrivers}>
 
                 {drivers.length
                     ? drivers.map(driver =><Driver driver={driver}  getAllDrivers={getAllDrivers}/>)

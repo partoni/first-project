@@ -6,10 +6,10 @@ import style from "./Driver.module.css"
 
 const Driver =(props)=>{
     let[details,setDetails]=useState(false)
-    console.log(props);
+    console.log('Driver');
     const {name,firstName,auto,phone,id}=props.driver
     function onDetails(el) {
-        console.log(el);
+       
        setDetails(!details)
     }
     function delDriver(el) {

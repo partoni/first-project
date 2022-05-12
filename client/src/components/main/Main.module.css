@@ -1,0 +1,12 @@
+.main{
+    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.item{
+   border: 1px solid #fff;
+   flex: 1 0 auto;
+   margin: 10px 0px;
+}

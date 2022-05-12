@@ -13,8 +13,8 @@ export default function PageAuth() {
     const location = useLocation()
     const navigate = useNavigate()
     let lastPage = location.state?.from?.pathname||'/'
-    console.log('авторизация',user.email)
-    console.log(lastPage);
+    console.log('PageAuth');
+    
     function changEmail(el) {
         setEmail(el.target.value)
     }
@@ -26,20 +26,23 @@ export default function PageAuth() {
         usersApi.addUser(email,password)
         .then(user=>{
             setUser(user)
-        console.log(user) })
+        })
         setEmail('')
         setPassword('')
     }
+    
     const getUser = async(el)=> {
         // el.preventDefault()
         await usersApi.getUser(email,password)
         .then(user=>{
             setUser(user.data)
+            localStorage.setItem('userRole',user.data.role)
             })
         .catch(e=>console.log(e))
         // setEmail('')
         // setPassword('')
-        navigate(lastPage,{replase:true})
+        console.log(user.role);
+        navigate('/admin',{replase:true})
     }
     return(
         <div className={style.auth}>
@@ -52,7 +55,8 @@ export default function PageAuth() {
             </div>
             <div className={style.button}>
             <MyButton content='войти' callback={getUser}/>
-            <MyButton content='Регистрация' callback={getUser}/>
+            <MyButton content='Регистрация' callback={addUser}/>
+            
             
             </div>
             <h2>{user.email?user.email:'no user'}</h2>

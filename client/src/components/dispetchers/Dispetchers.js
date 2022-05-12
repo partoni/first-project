@@ -4,7 +4,7 @@ import React,{ useState } from "react"
 
 export const Dispetchers = ()=>{
     const [dispetchers, setDispetchers] = useState([])
-
+    console.log('Dispetchers');
     return(
         <div>
             <ul>
