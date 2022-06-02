@@ -3,12 +3,12 @@ import { driverApi } from '../../api/api'
 import { MyButton } from '../UI/button/MyButton';
 import Driver from './Driver';
 import style from './Drivers.module.css'
+
+
 export const Drivers = () => {
     console.log('компонент Drivers')
     
-    const [drivers, setDrivers] = useState([
-        { name: 'Anton', firstName: 'Petrov', auto: 'skoda', phone: '01234567' }
-    ])
+    const [drivers, setDrivers] = useState([])
     const getAllDrivers = async()=>{
         await driverApi.getAllDrivers()
         .then((driversDB)=>setDrivers(driversDB.data))

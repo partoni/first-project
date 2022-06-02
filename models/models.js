@@ -13,6 +13,15 @@ const Post=sequelize.define('post',{
     body:{type:DataTypes.STRING}
 }
 )
+const Token=sequelize.define('token',{
+    refreshToken:{type:DataTypes.STRING},
+    
+})
+
 User.hasMany(Post)
 Post.belongsTo(User)
-module.exports = {User,Post}
+
+User.hasOne(Token)
+Token.belongsTo(User)
+
+module.exports = {User,Post,Token}

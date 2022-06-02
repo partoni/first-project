@@ -12,6 +12,8 @@ export default function PageAuth() {
     let [user,setUser] = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+
+
     let lastPage = location.state?.from?.pathname||'/'
     console.log('PageAuth');
     
@@ -25,10 +27,29 @@ export default function PageAuth() {
         // el.preventDefault()
         usersApi.addUser(email,password)
         .then(user=>{
+            localStorage.setItem('token',user.data.accessToken)
+            console.log(user.data);
             setUser(user)
+
         })
         setEmail('')
         setPassword('')
+    }
+    function choose(role) {
+        switch (role) {
+            case "ADMIN":
+               return navigate('/admin',{replase:true})
+                
+            case "DRIVER":
+               return navigate('/forDrivers',{replase:true})
+               
+            case "DISPETCHER":
+              return navigate('/forDispetchers',{replase:true})
+                        
+            case "USER":
+                return navigate('/',{replase:true})
+                
+        }
     }
     
     const getUser = async(el)=> {
@@ -37,12 +58,16 @@ export default function PageAuth() {
         .then(user=>{
             setUser(user.data)
             localStorage.setItem('userRole',user.data.role)
+            localStorage.setItem('token',user.data.accessToken)
+            choose(user.data.role)
             })
         .catch(e=>console.log(e))
         // setEmail('')
         // setPassword('')
         console.log(user.role);
-        navigate('/admin',{replase:true})
+        
+         
+
     }
     return(
         <div className={style.auth}>
