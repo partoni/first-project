@@ -12,18 +12,23 @@ instans.interceptors.response.use((config) =>
     {
         return config;
     },async(err)=>{
-        
+        console.log('err interceptor----- '+err)
         const originalRequest = err.config;
-        if (err.response.status == 401 && err.config && !err.config._isRetry) {
+        // console.log('err.config-----'+originalRequest);
+        if (err.response.status == 500 && err.config && !err.config._isRetry) {
             originalRequest._isRetry = true;
         try{
-           let newRequest = await instans.post('refresh')
+           let newRequest = await instans.get('user/refresh')
+           console.log(newRequest.data.accessToken);
            localStorage.setItem("token",newRequest.data.accessToken)
         }catch(error){}
     }
     throw err
 })
 export const usersApi = {
+    refresh(){
+        return instans.get('user/refresh')
+    },
      getUser(email,password){
        return instans.post('user/auth',{email,password})
     },

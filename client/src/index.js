@@ -3,11 +3,13 @@ import React from 'react';
 import {createRoot} from 'react-dom/client'
 import './index.css';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { WithAuth } from './hoc/AuthContext';
 
 const root = createRoot(document.getElementById('root'))
-root.render(<BrowserRouter><App/></BrowserRouter>)
+root.render(<BrowserRouter><WithAuth><App value={{}}/></WithAuth></BrowserRouter>)
 // ReactDOM.render(
 //   <React.StrictMode>
 //     <App />

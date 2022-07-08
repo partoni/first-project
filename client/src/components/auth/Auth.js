@@ -36,8 +36,10 @@ export default function PageAuth() {
         setPassword('')
     }
     function choose(role) {
+        console.log('choose ---- role'+role);
         switch (role) {
             case "ADMIN":
+                
                return navigate('/admin',{replase:true})
                 
             case "DRIVER":
@@ -54,6 +56,7 @@ export default function PageAuth() {
     
     const getUser = async(el)=> {
         // el.preventDefault()
+        
         await usersApi.getUser(email,password)
         .then(user=>{
             setUser(user.data)

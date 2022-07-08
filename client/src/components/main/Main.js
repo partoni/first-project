@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../hoc/AuthContext";
 import style from './Main.module.css'
 
 export const Main = ()=>{
+    const user = useContext(AuthContext)
     console.log('Main');
     return(
         <div className={style.main}>

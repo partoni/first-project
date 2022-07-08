@@ -13,6 +13,7 @@ const Header = () => {
     return (
         
             <div className={style.header}>
+                {user.role==='ADMIN'?<div className={style.admin}><Link to={'/admin'}>админпанель</Link></div>:null}
                 <div className={style.headerItem}><Link to={'/'}>Главная</Link></div>
                 <div className={style.headerItem}><Link to={'/city'}>Города</Link></div>
                 <div className={style.headerItem}>

@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import './App.css';
 
 
-import {Link, Route, Routes} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import PageAuth from './components/auth/Auth';
 import Reg from './components/Reg';
 import { Main } from './components/main/Main';
 import { PrivetPage } from './hoc/PrivetPage';
-import { WithAuth } from './hoc/AuthContext';
+import { AuthContext } from './hoc/AuthContext';
 import DriversPage from './components/driversPage/DriversPage';
 import DispetchersPage from './components/dispetchersPage/DispetchersPage';
 import AdminPage from './components/adminPage/AdminPage';
 import { AdminAuth } from './hoc/AdminAuth';
 import Header from './components/Header/Header';
+import { usersApi } from './api/api';
 
 
 
 function App() {
- 
+  let [store, setStore] = useContext(AuthContext)
+ useEffect(()=>{
+   if(localStorage.getItem('token')){
+    console.log('useEffect App');
+     usersApi.refresh().then((user)=>{
+      console.log(user.data);
+      setStore(user.data)})
+   }
+ },[])
   return (
-    <WithAuth>
+    // <WithAuth>
     <div className="App">
      
         <div className='content'>
@@ -45,7 +54,7 @@ function App() {
         </div>
       
     </div>
-    </WithAuth>
+    // </WithAuth>
     
   );
 }
