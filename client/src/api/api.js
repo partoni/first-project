@@ -26,6 +26,9 @@ instans.interceptors.response.use((config) =>
     throw err
 })
 export const usersApi = {
+    logout(){
+        return instans.get('user/logout')
+    },
     refresh(){
         return instans.get('user/refresh')
     },

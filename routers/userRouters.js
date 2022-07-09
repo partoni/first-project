@@ -44,7 +44,18 @@ userRouter.post('/reg', async (req,res)=>{
 //         res.cookie('refreshToken',tokens.refreshToken,{httpOnly:true,maxAge: 30 * 24 * 60 * 60 * 1000})
 //         res.status(200).json({...user.dataValues,...tokens})
 // })
-
+userRouter.get('/logout', async(req,res)=>{
+    try {
+        const {refreshToken}=req.cookies
+    const user = tokenService.validateRefreshToken(refreshToken)
+    tokenService.removeToken(refreshToken)
+    res.clearCookie('refreshToken')
+    res.status(200).json('cookie deleted')
+    } catch (error) {
+        res.status(500).json(error.message)
+    }
+}
+)
 userRouter.get('/refresh', async(req,res)=>{
    try{ const {refreshToken}=req.cookies
     const user = tokenService.validateRefreshToken(refreshToken)

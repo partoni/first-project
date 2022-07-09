@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
+import { usersApi } from "../../api/api"
 import { AuthContext } from "../../hoc/AuthContext"
 import style from "./Header.module.css"
 
@@ -8,6 +9,7 @@ const Header = () => {
     const [user,setUser]=useContext(AuthContext)
     const logout=()=>{
         setUser({})
+        usersApi.logout()
     }
 
     return (
