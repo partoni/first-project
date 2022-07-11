@@ -29,7 +29,7 @@ export default function PageAuth() {
         .then(user=>{
             localStorage.setItem('token',user.data.accessToken)
             console.log(user.data);
-            setUser(user)
+            setUser(user.data)
 
         })
         setEmail('')

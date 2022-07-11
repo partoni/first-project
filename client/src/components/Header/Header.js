@@ -10,6 +10,7 @@ const Header = () => {
     const logout=()=>{
         setUser({})
         usersApi.logout()
+        localStorage.clear()
     }
 
     return (
